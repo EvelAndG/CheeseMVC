@@ -1,0 +1,20 @@
+﻿@using CheeseMVC.Controllers
+@{
+    Layout = null;
+}
+
+<h1>Remove Cheese</h1>
+
+
+
+<form method="post">
+    <select name="name">
+
+
+       @foreach(string cheese in ViewBag.Cheeses)
+    {
+      <option name="name">@cheese</option>  
+    }
+    </select>
+    <input type="submit" value="Remove Cheese" />
+</form>

@@ -7,11 +7,10 @@ namespace CheeseMVC.Controllers
 
 
         static private List<string> Cheeses = new List<string>();
+
         public IActionResult Index()
         {
-  
-
-            ViewBag.cheeses = Cheeses;
+           ViewBag.cheeses = Cheeses;
 
             return View();
         }
@@ -30,7 +29,22 @@ namespace CheeseMVC.Controllers
 
             return Redirect("/Cheese");
 
-        } 
+        }
+
+
+        //[HttpPost]
+        //[Route("/Cheese/Remove")]
+        public IActionResult Remove(string name)
+        {
+
+            ViewBag.cheeses = Cheeses;
+
+            //Cheeses.Remove(name);
+            // return Redirect("/Cheese");
+            Cheeses.Remove(name);
+            return View();
+
+        }
 
 
         

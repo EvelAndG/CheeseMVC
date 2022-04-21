@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections;
 
 namespace CheeseMVC.Controllers
 {
@@ -26,8 +27,8 @@ namespace CheeseMVC.Controllers
         public IActionResult NewCheese(string name, string description)
         {
             //Add new cheese to existing cheeses
+            //Takes two paramaters (name & description)
             Cheeses.Add(name, description);
-
             return Redirect("/Cheese");
 
         }
@@ -37,20 +38,18 @@ namespace CheeseMVC.Controllers
         //[Route("/Cheese/Remove")]
         public IActionResult Remove(string name, string description)
         {
-            ViewBag.cheeses = Cheeses;
-           
+            ViewBag.cheeses = Cheeses;  
 
             return View();
 
         }
 
-        [HttpPost]
         [Route("/Cheese/Remove")]
-        public IActionResult RemoveCheese(string name, string description)
+        [HttpPost]       
+        public IActionResult RemoveCheese(string cheeseName, string description)
         {
             ViewBag.cheeses = Cheeses;
-
-            Cheeses.Remove(name);
+            Cheeses.Remove(cheeseName);
             return Redirect("/Cheese");
 
         }

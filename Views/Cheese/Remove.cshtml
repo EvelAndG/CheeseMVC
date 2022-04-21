@@ -7,7 +7,7 @@
 
 <form method="post">
     <select name="name">
-       @foreach(string cheese in ViewBag.Cheeses)
+      @foreach(KeyValuePair<string,string> cheese in ViewBag.cheeses)
     {
       <option name="name">@cheese</option>  
     }

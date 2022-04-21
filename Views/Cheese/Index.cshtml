@@ -13,7 +13,7 @@
 }
 
 <ul>
-    @foreach(string cheese in ViewBag.Cheeses)
+    @foreach(KeyValuePair<string,string> cheese in ViewBag.Cheeses)
     {
       <li>@cheese</li>  
     }
